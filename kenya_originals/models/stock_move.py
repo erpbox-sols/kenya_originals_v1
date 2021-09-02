@@ -21,3 +21,11 @@ class ProductTemplate(models.Model):
     qty_available = fields.Float(
         'Quantity On Hand', compute='_compute_quantities', search='_search_qty_available',
         compute_sudo=False, digits='Manufacturing')
+
+class MrpBomLine(models.Model):
+    _inherit = 'mrp.bom.line'
+
+    product_qty = fields.Float(
+        'Quantity', default=1.0,
+        digits='Manufacturing', required=True)
+    

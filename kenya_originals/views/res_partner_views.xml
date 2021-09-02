@@ -5,14 +5,14 @@
 		<field name="model">res.partner</field>
 		<field name="inherit_id" ref="base.view_partner_form"/>
 		<field name="arch" type="xml">
-			<field name="parent_id" position="before">
+			<xpath expr="//form/sheet/div[hasclass('oe_title')]" position="after">
 				<field name="business_partner_code" readonly="1"/>
-			</field>
+			</xpath>
 			<xpath expr="//form/sheet/group/group/field[@name='vat']" position="after">
-				<field name="partner_category_id" required="1"/>
-				<field name="division_id" required="1"/>
-				<field name="region_id" required="1"/>
-				<field name="area_id" required="1" domain="[('division_id', '=', division_id), ('region_id', '=', region_id)]"/>
+				<field name="partner_category_id"/>
+				<field name="division_id"/>
+				<field name="region_id"/>
+				<field name="area_id" domain="[('division_id', '=', division_id), ('region_id', '=', region_id)]"/>
 			</xpath>
 			<xpath expr="//page[@name='contact_addresses']/field/form/sheet/field[@name='user_id']" position="replace">
 				<group>
@@ -33,6 +33,15 @@
 					<field name="business_ids"/>
 				</page>
 			</xpath>
+			<!-- <xpath expr="//form/sheet/group/group[last()]" position="after">
+				<field name="region_area_ids">
+					<tree editable="bottom">
+						<field name="division_id" required="1"/>
+						<field name="region_id" required="1"/>
+						<field name="area_id" required="1" domain="[('region_id', '=', region_id)]"/>
+					</tree>
+				</field>
+			</xpath> -->
 			<xpath expr="//page[@name='sales_purchases']/group/group[1]/field[@name='user_id']" position="replace">
 				<label for="user_id"/>
 				<div class="oe_row">

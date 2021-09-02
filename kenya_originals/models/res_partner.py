@@ -28,6 +28,7 @@ class ResPartner(models.Model):
     def create(self, vals):
         res = super(ResPartner, self).create(vals)
         if not res.business_partner_code:
+            seq = ''
             if res.partner_category_id == 'customer':
                 seq = self.env['ir.sequence'].next_by_code('res.partner.customer')
             if res.partner_category_id == 'supplier':
