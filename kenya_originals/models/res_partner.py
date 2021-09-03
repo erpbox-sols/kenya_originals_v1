@@ -40,6 +40,16 @@ class ResPartner(models.Model):
             sub_code = self.env['ir.sequence'].next_by_code('res.partner.delivery.child')
             res.business_partner_code = res.parent_id.business_partner_code
             res.customer_code_sub = res.parent_id.business_partner_code + sub_code
+        elif res.parent_id and res.type == 'contact':
+            res.partner_category_id = res.parent_id.partner_category_id
+            seq = ''
+            if res.partner_category_id == 'customer':
+                seq = self.env['ir.sequence'].next_by_code('res.partner.customer')
+            if res.partner_category_id == 'supplier':
+                seq = self.env['ir.sequence'].next_by_code('res.partner.supplier')
+            if res.partner_category_id == 'employee':
+                seq = self.env['ir.sequence'].next_by_code('res.partner.employee')
+            res.business_partner_code = seq
         return res
 
 class Divisions(models.Model):
