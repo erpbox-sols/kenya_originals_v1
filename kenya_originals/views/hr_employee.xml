@@ -7,8 +7,8 @@
             <field name="arch" type="xml">
                 <field name="coach_id" position="replace">
                     <field name="division_id"/>
-                    <field name="region_id"/>
-                    <field name="area_id" domain="[('division_id', '=', division_id), ('region_id', '=', region_id)]"/>
+                    <field name="region_ids" widget="many2many_tags"/>
+                    <field name="area_ids" domain="[('division_id', '=', division_id), ('region_id', '=', region_ids)]" widget="many2many_tags"/>
                 </field>
             </field>
         </record>
