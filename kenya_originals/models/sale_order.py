@@ -40,6 +40,12 @@ class SaleOrder(models.Model):
         res['trading_id'] = self.trading_id and self.trading_id.id or False
         return res
 
+    @api.onchange('trading_id')
+    def onchange_trading_id(self):
+        partner_id = self.env['res.partner'].sudo().search([]).filtered(lambda x: self.trading_id in x.business_ids)
+        if partner_id:
+            self.partner_id = partner_id.id
+
 class SaleReport(models.Model):
     _inherit = "sale.report"
 

@@ -52,6 +52,19 @@ class ResPartner(models.Model):
             res.business_partner_code = seq
         return res
 
+    def write(self, vals):
+        res = super(ResPartner, self).write(vals)
+        if 'partner_category_id' in vals:            
+            seq = ''
+            if self.partner_category_id == 'customer':
+                seq = self.env['ir.sequence'].next_by_code('res.partner.customer')
+            if self.partner_category_id == 'supplier':
+                seq = self.env['ir.sequence'].next_by_code('res.partner.supplier')
+            if self.partner_category_id == 'employee':
+                seq = self.env['ir.sequence'].next_by_code('res.partner.employee')
+            self.business_partner_code = seq
+        return res
+
 class Divisions(models.Model):
     _name = "division.name"
 

@@ -5,3 +5,4 @@ from . import account_asset
 from . import stock_move
 from . import account_move
 from . import stock_picking
+from . import hr_employee

@@ -16,6 +16,7 @@
         'security/ir.model.access.csv',
         'views/res_partner_views.xml',
         'views/sale_order_views.xml',
+        'views/hr_employee.xml',
         'views/account_move.xml',
         'views/account_tax.xml',
         'views/account_asset.xml',
