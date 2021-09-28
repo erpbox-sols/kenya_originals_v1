@@ -14,7 +14,7 @@
 				<field name="region_id"/>
 				<field name="area_id" domain="[('division_id', '=', division_id), ('region_id', '=', region_id)]"/>
 			</xpath>
-			<!-- <xpath expr="//page[@name='contact_addresses']/field/form/sheet/field[@name='user_id']" position="replace">
+			<xpath expr="//page[@name='contact_addresses']/field/form/sheet/field[@name='user_id']" position="replace">
 				<group>
 					<group>
 						<field name="user_id" invisible="1"/>
@@ -25,7 +25,7 @@
 						</div>
 					</group>
 				</group>
-			</xpath> -->
+			</xpath>
 			<xpath expr="//page[@name='contact_addresses']/field/form/sheet/group/group[2]/field[@name='mobile']" position="after">
 					<field name="customer_code_sub" readonly="1" attrs="{'invisible': [('type', '!=', 'delivery')]}"/>
 					<field name="division_id" attrs="{'invisible': [('type', '!=', 'delivery')]}"/>
@@ -46,14 +46,14 @@
 					</tree>
 				</field>
 			</xpath> -->
-			<!-- <xpath expr="//page[@name='sales_purchases']/group/group[1]/field[@name='user_id']" position="replace">
+			<xpath expr="//page[@name='sales_purchases']/group/group[1]/field[@name='user_id']" position="replace">
 				<field name="user_id" invisible="1"/>
 				<label for="sale_person_id"/>
 				<div class="oe_row">
 					<field name="sale_person_id"/>
 					<span>  (<field name="saleperson_id"/>)</span>
 				</div>
-			</xpath>  -->
+			</xpath> 
 		</field>
 	</record>
 
