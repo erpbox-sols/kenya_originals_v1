@@ -18,7 +18,7 @@ class ResPartner(models.Model):
                                     ('employee','Employee'),], string="Category", default='customer')
     business_partner_code = fields.Char("Business Partner Code", copy=False)
     business_ids = fields.Many2many("trading.name", string="Business Name", copy=False)
-    sale_person_id = fields.Many2one('hr.employee', string="Salesperson", copy=False)
+    # sale_person_id = fields.Many2one('hr.employee', string="Salesperson", copy=False)
     saleperson_id = fields.Integer("Id", related="sale_person_id.id")
     customer_code_sub = fields.Char("Customer Code Sub", copy=False)
     division_id = fields.Many2one('division.name', string="Division", copy=False)
