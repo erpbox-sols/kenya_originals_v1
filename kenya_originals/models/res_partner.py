@@ -24,6 +24,14 @@ class ResPartner(models.Model):
     division_id = fields.Many2one('division.name', string="Division", copy=False)
     region_id = fields.Many2one('region.name', string="Region", copy=False)
     area_id = fields.Many2one('region.areas', string="Area", copy=False)
+    occassion = fields.Selection([('on_trade', 'On-Trade'),
+                                    ('off_trade', 'Off-Trade')], string="Occassion", copy=False)
+    channel = fields.Selection([('grocery_trade_retail', 'Grocery Trade Retail'),
+                                    ('general_trade', 'General Trade'),
+                                    ('key_accounts', 'Key Accounts'),
+                                    ('Distributor', 'Distributor')], string="Channel", copy=False)
+    segment_id = fields.Many2one('channel.segment', string="Segment", copy=False)
+
 
     @api.model
     def create(self, vals):
@@ -84,4 +92,14 @@ class RegionAreas(models.Model):
     division_id = fields.Many2one('division.name', string="Division")
     region_id = fields.Many2one("region.name", string="Region")
     area_id = fields.Char("Area")
+
+class ChannelSegment(models.Model):
+    _name = 'channel.segment'
+    _description = "Channel Segment"
+
+    channel = fields.Selection([('grocery_trade_retail', 'Grocery Trade Retail'),
+                                    ('general_trade', 'General Trade'),
+                                    ('key_accounts', 'Key Accounts'),
+                                    ('Distributor', 'Distributor')], string="Channel", copy=False)
+    name = fields.Char('Segment')
 

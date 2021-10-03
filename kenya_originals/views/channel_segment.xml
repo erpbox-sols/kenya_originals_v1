@@ -1,0 +1,29 @@
+<odoo>
+
+
+	<record id="view_channel_segment_tree" model="ir.ui.view">
+		<field name="name">view.channel.segment.tree</field>
+		<field name="model">channel.segment</field>
+		<field name="arch" type="xml">
+			<tree string="Channel Segment" editable="bottom">
+				<field name="channel" required="1"/>
+				<field name="name" required="1"/>
+			</tree>
+		</field>
+	</record>
+
+
+	<record id="action_channel_segment" model="ir.actions.act_window">
+        <field name="name">Channel Segment</field>
+        <field name="res_model">channel.segment</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Segment
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="channel_segment_menu" action="action_channel_segment" name="Channel &amp; Segment" parent="contacts.menu_localisation" sequence="22"/>
+
+</odoo>

@@ -37,5 +37,23 @@
 			<field name="number_next">1</field>
 		</record>
 
+		<record id="product_default_code_raw_material" model="ir.sequence">
+			<field name="name">Product Internal Reference Raw Material</field>
+			<field name="code">product.raw.material</field>
+			<field name="prefix">RM-</field>
+			<field name="active">TRUE</field>
+			<field name="padding">5</field>
+			<field name="number_next">1</field>
+		</record>
+
+		<record id="product_default_code_packaging" model="ir.sequence">
+			<field name="name">Product Internal Reference Raw Material</field>
+			<field name="code">product.template.packaging</field>
+			<field name="prefix">PM-</field>
+			<field name="active">TRUE</field>
+			<field name="padding">5</field>
+			<field name="number_next">1</field>
+		</record>
+
 	</data>
 </odoo>
